@@ -7,8 +7,10 @@
 
 #include "include/my.h"
 
-int main(int ac, char *av)
+int main(int ac, char **av)
 {
+    if (ac == 1)
+        return (84);
     if (ac == 2) {
         help(av);
     }
