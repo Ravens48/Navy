@@ -17,6 +17,7 @@ SRCS	= ./help.c \
 	  ./lib/my/my_putstr_error.c \
 	  ./lib/my/my_strlen.c \
 	  ./lib/my/my_strcmp.c \
+	  ./NAVY_makemap.c \
 	  ./main.c
 
 OBJS	= $(SRCS:.c=.o)
