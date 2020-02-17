@@ -14,19 +14,30 @@ navy_t *malloc_s(void)
     if (!navy)
         return (NULL);
     navy->map_usr1 = NULL;
+    navy->map_usr2 = NULL;
+    navy->map_ennemy1 = NULL;
+    navy->map_ennemy2 = NULL;
     return (navy);
+}
+
+void initialise_map(navy_t *navy) {
+    navy->map_usr1 = create_map();
+    navy->map_usr2 = create_map();
+    navy->map_ennemy1 = create_map();
+    navy->map_ennemy2 = create_map();
 }
 
 int main(int ac, char **av)
 {
-    navy_t *navy = NULL;
-    //if (ac == 1)
-    //    return (84);
+    navy_t *navy = malloc_s();
+    initialise_map(navy);
+
     if (ac == 2) {
         help(av);
     }
     else {
-        print_my_map();
+       print_my_map(navy->map_usr1);
+       print_enemy_map(navy->map_usr2);
     }
     return (0);
 }

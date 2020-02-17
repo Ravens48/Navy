@@ -14,6 +14,7 @@ RM	= rm -f
 SRCS	= ./help.c \
 	  ./lib/my/my_putchar.c \
 	  ./lib/my/my_putstr.c \
+	  ./lib/my/my_put_nbr.c \
 	  ./lib/my/my_putstr_error.c \
 	  ./lib/my/my_strlen.c \
 	  ./lib/my/my_strcmp.c \
