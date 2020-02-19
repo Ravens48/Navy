@@ -31,13 +31,14 @@ int main(int ac, char **av)
 {
     navy_t *navy = malloc_s();
     initialise_map(navy);
-
-    if (ac == 2) {
-        help(av);
-    }
-    else {
-       print_my_map(navy->map_usr1);
-       print_enemy_map(navy->map_usr2);
-    }
+    char *position;
+    //if (ac == 2) {
+    //    help(av);
+    //}
+        position = open_file(av[1]);
+        printf("%s\n", position);
+        print_my_map(navy->map_usr1);
+        print_enemy_map(navy->map_usr2);
+    
     return (0);
 }

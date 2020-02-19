@@ -19,6 +19,7 @@ SRCS	= ./help.c \
 	  ./lib/my/my_strlen.c \
 	  ./lib/my/my_strcmp.c \
 	  ./NAVY_makemap.c \
+	  ./NAVY_open_pose.c \
 	  ./main.c
 
 OBJS	= $(SRCS:.c=.o)

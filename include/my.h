@@ -8,6 +8,10 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 #ifndef MY_H_
 #define MY_H_
@@ -32,5 +36,6 @@ char **column(int i, int x, int add, char **map);
 char **first_line(int i, char **map);
 int my_put_nbr(int n);
 char **print_enemy_map(char **map);
+char *open_file(char *str);
 
 #endif /* !MY_H_ */
