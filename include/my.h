@@ -25,14 +25,23 @@ typedef struct navy_s {
     int y_b1;
     int x_b2;
     int y_b2;
-    
 }navy_t;
+
+typedef struct connect_s
+{
+    int other_pid;
+    int signal_nb;
+}connect_t;
+
+connect_t co_term;
 
 void my_putchar(char c);
 int my_strlen(char const *str);
 int my_putstr_error(char const *str);
 int my_putstr(char const *str);
 int my_strcmp(char const *s1, char const *s2);
+int my_getnbr(char const *str);
+void connect(int ac, char **av);
 int help(char **av);
 char **print_my_map(char **map);
 char **create_map(void);

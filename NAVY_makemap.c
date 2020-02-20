@@ -34,8 +34,8 @@ char **print_my_map(char **map)
     int i = 0;
     int j = 0;
 
-    printf(" |A B C D E F G H\n");
-    printf("-+---------------\n");
+    my_putstr(" |A B C D E F G H\n");
+    my_putstr("-+---------------\n");
     for (; map[i] != NULL; i++, x++) {
         my_put_nbr(x);
         my_putchar('|');

@@ -59,7 +59,7 @@ char *get_next_line(const int fd)
     static char *buff = NULL;
     char *line;
     int len;
-    
+
     if (buff == NULL) {
         if ((buff = malloc((READ_SIZE + 1) * sizeof(char))));
         buff[0] = '\0';

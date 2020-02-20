@@ -21,10 +21,12 @@ SRCS	= ./help.c \
 	  ./lib/my/my_strcmp.c \
 	  ./lib/my/my_str_tab.c \
 	  ./lib/my/my_memset.c \
+	  ./lib/my/my_getnbr.c \
 	  ./NAVY_makemap.c \
 	  ./NAVY_open_pose.c \
 	  ./NAVY_map_error.c \
 	  ./NAVY_boat.c \
+	  ./connection.c \
 	  ./main.c
 
 OBJS	= $(SRCS:.c=.o)

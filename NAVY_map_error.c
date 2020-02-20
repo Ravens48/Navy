@@ -10,7 +10,6 @@
 
 int type_boat(navy_t *navy)
 {
-    //printf("coucou");
     char *verif_type = NULL;
     verif_type = get_next_line(navy->fd);
 
@@ -26,10 +25,10 @@ int type_boat(navy_t *navy)
     return (0);
 }
 
-int error_gesture(navy_t *navy) 
+int error_gesture(navy_t *navy)
 {
     if (type_boat(navy) == 84) {
-        my_putstr_error("La map est invalide les bateaux "); 
+        my_putstr_error("La map est invalide les bateaux ");
         my_putstr_error("doivent etre compris entre 2 et 5\n");
         return (84);
     }

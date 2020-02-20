@@ -1,5 +1,0 @@
-LSEEK : 
-La fonction lseek() place la tête de lecture/écriture à la position offset dans le fichier ouvert associé au descripteur fd en suivant la directive whence ainsi :
-va surement servir a placer les bateaux.
-
-Utiliser GLOBAL pour save le PID.

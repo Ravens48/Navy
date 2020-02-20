@@ -19,7 +19,7 @@ char *open_file(char *str)
 
     fd = open(str, O_RDONLY);
     if (fd == -1) {
-        return(NULL);
+        return (NULL);
     }
     read(fd, buffer, size);
     close(fd);

@@ -12,7 +12,7 @@ char **take_boat(navy_t *navy, char **map)
 {
     char *save = NULL;
     save = get_next_line(navy->fd);
-    
+
     for (;save != NULL;) {
         navy->type = (save[0] - '0');
         navy->x_b1 = save[2] - 'A';
