@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 #ifndef READ_SIZE
-#define READ_SIZE (4096)
+#define READ_SIZE (1)
 
 char *get_next_line(const int fd);
 int my_putstr(char const *str);

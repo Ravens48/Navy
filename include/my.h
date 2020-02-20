@@ -17,10 +17,15 @@
 #define MY_H_
 
 typedef struct navy_s {
-    char **map_usr1;
-    char **map_ennemy2;
-    char **map_usr2;
-    char **map_ennemy1;
+    char **map_usr;
+    char **map_ennemy;
+    int fd;
+    int type;
+    int x_b1;
+    int y_b1;
+    int x_b2;
+    int y_b2;
+    
 }navy_t;
 
 void my_putchar(char c);
@@ -35,7 +40,13 @@ void set_map(char **map, int size, int col_len);
 char **column(int i, int x, int add, char **map);
 char **first_line(int i, char **map);
 int my_put_nbr(int n);
-char **print_enemy_map(char **map);
 char *open_file(char *str);
+char **str_to_word_array(char *str);
+int count_word(const char *str);
+void *my_memset(void *str, int value, int len);
+char **place_boat(navy_t *navy, char **map);
+char **take_boat(navy_t *navy, char **map);
+int error_gesture (navy_t *navy);
+int type_boat(navy_t *navy);
 
 #endif /* !MY_H_ */
