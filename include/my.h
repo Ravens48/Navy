@@ -25,6 +25,7 @@ typedef struct navy_s {
     int y_b1;
     int x_b2;
     int y_b2;
+    int c_boat;
 }navy_t;
 
 typedef struct connect_s
@@ -57,5 +58,6 @@ char **place_boat(navy_t *navy, char **map);
 char **take_boat(navy_t *navy, char **map);
 int error_gesture (navy_t *navy);
 int type_boat(navy_t *navy);
+int verif_place(navy_t *navy);
 
 #endif /* !MY_H_ */

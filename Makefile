@@ -11,7 +11,7 @@ CC	= gcc
 
 RM	= rm -f
 
-SRCS	= ./help.c \
+SRCS	= ./navy_help.c \
 	  ./lib/my/my_putchar.c \
 	  ./lib/my/my_putstr.c \
 	  ./lib/my/my_put_nbr.c \
@@ -22,12 +22,12 @@ SRCS	= ./help.c \
 	  ./lib/my/my_str_tab.c \
 	  ./lib/my/my_memset.c \
 	  ./lib/my/my_getnbr.c \
-	  ./NAVY_makemap.c \
-	  ./NAVY_open_pose.c \
-	  ./NAVY_map_error.c \
-	  ./NAVY_boat.c \
-	  ./connection.c \
-	  ./main.c
+	  ./navy_makemap.c \
+	  ./navy_open_pose.c \
+	  ./navy_map_error.c \
+	  ./navy_boat.c \
+	  ./navy_connection.c \
+	  ./navy_main.c
 
 OBJS	= $(SRCS:.c=.o)
 
