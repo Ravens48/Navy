@@ -62,7 +62,7 @@ int main(int ac, char **av)
     }
     if (error_gesture(navy) == 84)
         return (84);
-    //connect(ac, av);
+    connect(ac, av);
     if (ac == 2) {
         print_player(navy, av);
     } else if (ac == 3) {

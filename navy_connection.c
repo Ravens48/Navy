@@ -35,7 +35,7 @@ void player(int id_process)
     my_putchar('\n');
     my_putstr("waiting for ennemy connection...\n\n");
     pause();
-    my_putstr("ennemy connected\n\n");
+    my_putstr("enemy connected\n\n");
 }
 
 void enemy_player(int id_process, char **av)
