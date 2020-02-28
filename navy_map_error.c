@@ -14,7 +14,6 @@ int type_boat(navy_t *navy)
     char **map = navy->map_usr;
     verif_type = get_next_line(navy->fd);
     navy->c_boat = 0;
-    int check_type = 2;
 
     for (; verif_type != NULL;) {
         navy->type = (verif_type[0] - '0');
@@ -55,6 +54,7 @@ int type_boat(navy_t *navy)
 int verif_place(navy_t *navy)
 {
     char **map = navy->map_usr;
+
     if (navy->y_b1 == navy->y_b2) {
         while (navy->x_b1 <= navy->x_b2) {
             if (map[navy->y_b1][navy->x_b1] != '.')
@@ -76,16 +76,11 @@ int verif_place(navy_t *navy)
 
 int error_gesture(navy_t *navy)
 {
-    if (type_boat(navy) == 84) {
-        //my_putstr_error("La map est invalide les bateaux ");
-        //my_putstr_error("doivent etre compris entre 2 et 5\n");
+    if (type_boat(navy) == 84)
         return (84);
-    }
     if (navy->c_boat < 4 || navy->c_boat > 4) {
         my_putstr_error("Vous devez placez 4 bateau");
         return (84);
     }
     return (0);
 }
-
-//verifier si le fichier texte est valide ?

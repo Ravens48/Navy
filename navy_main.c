@@ -56,17 +56,19 @@ int main(int ac, char **av)
 {
     navy_t *navy = malloc_s();
     initialise_map(navy);
-    navy->fd = open(av[1], O_RDONLY);
+
     if (ac == 2) {
         help(av);
+        navy->fd = open(av[1], O_RDONLY);
     }
+    if (ac == 3)
+        navy->fd = open(av[2], O_RDONLY);
     if (error_gesture(navy) == 84)
         return (84);
     connect(ac, av);
-    if (ac == 2) {
+    if (ac == 2)
         print_player(navy, av);
-    } else if (ac == 3) {
+    if (ac == 3)
         print_enemy(navy, av);
-    }
     return (0);
 }

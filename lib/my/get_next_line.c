@@ -5,7 +5,7 @@
 ** get_next_line
 */
 
-#include "get_next_line.h"
+#include "../../include/get_next_line.h"
 
 char *my_realloc(char *buff, int offset)
 {
@@ -61,14 +61,14 @@ char *get_next_line(const int fd)
     int len;
 
     if (buff == NULL) {
-        if ((buff = malloc((READ_SIZE + 1) * sizeof(char))));
+        if ((buff = malloc((READ_SIZE + 1) * sizeof(char))))
         buff[0] = '\0';
     }
     if (buff[0] != '\0' && (line = my_line(buff + nbchar, &nbchar, 0)) != NULL)
         return (line);
     while ((len = read(fd, buff + offset, READ_SIZE)) > 0 && (offset += len)
     > 0) {
-        if ((buff = my_realloc(buff, offset)));
+        if ((buff = my_realloc(buff, offset)))
         if ((line = my_line(buff + nbchar, &nbchar, 0)) != NULL)
             return (line);
     }

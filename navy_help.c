@@ -9,7 +9,7 @@
 
 int help(char **av)
 {
-    if (av[1][0] == '-' && av[1][1] == 'h') {
+    if (my_strcmp(av[1], "-h")) {
         my_putstr("USAGE\n");
         my_putstr("\t./navy [first_player_pid] navy_positions\n");
         my_putstr("DESCRIPTION\n");
