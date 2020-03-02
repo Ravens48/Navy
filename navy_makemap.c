@@ -7,10 +7,8 @@
 
 #include "include/my.h"
 
-char **create_map(void)
+char **create_map(int nb_line, int nb_colonne)
 {
-    int nb_line = 8;
-    int nb_colonne = 8;
     int j = 0;
     int y = 0;
     int i = 0;

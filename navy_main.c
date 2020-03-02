@@ -20,8 +20,8 @@ navy_t *malloc_s(void)
 
 void initialise_map(navy_t *navy)
 {
-    navy->map_usr = create_map();
-    navy->map_ennemy = create_map();
+    navy->map_usr = create_map(8,8);
+    navy->map_ennemy = create_map(8,8);
 }
 
 void print_player(navy_t *navy, char **av)
@@ -58,17 +58,17 @@ int main(int ac, char **av)
     initialise_map(navy);
 
     if (ac == 2) {
-        help(av);
+        //help(av);
         navy->fd = open(av[1], O_RDONLY);
     }
     if (ac == 3)
         navy->fd = open(av[2], O_RDONLY);
     if (error_gesture(navy) == 84)
         return (84);
-    connect(ac, av);
+    //connect(ac, av);
     if (ac == 2)
         print_player(navy, av);
     if (ac == 3)
-        print_enemy(navy, av);
+        print_player(navy, av);
     return (0);
 }
