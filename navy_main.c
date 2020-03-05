@@ -7,7 +7,6 @@
 
 #include "include/my.h"
 
-
 navy_t *malloc_s(void)
 {
     navy_t *navy = malloc(sizeof(navy_t));
@@ -21,14 +20,12 @@ navy_t *malloc_s(void)
 
 void initialise_map(navy_t *navy)
 {
-    navy->map_usr = create_map(8,8);
-    navy->map_ennemy = create_map(8,8);
+    navy->map_usr = create_map(8, 8);
+    navy->map_ennemy = create_map(8, 8);
 }
 
-void print_player(int ac ,char **av, navy_t *navy)
+void print_player(int ac, char **av, navy_t *navy)
 {
-    char **map_boat = NULL;
-
     navy->fd = open(av[ac - 1], O_RDONLY);
     my_putstr("my positions:\n");
     navy->map_usr = take_boat(navy, navy->map_usr);
@@ -45,7 +42,8 @@ int main(int ac, char **av)
 
     initialise_map(navy);
     if (ac == 2) {
-        //help(av);
+        if (my_strcmp(av[1], "-h") == 0)
+            help();
         navy->fd = open(av[1], O_RDONLY);
     }
     if (ac == 3)
@@ -56,12 +54,11 @@ int main(int ac, char **av)
     connect(ac, av, navy);
     if (ac == 2) {
         print_player(ac, av, navy);
-        server_loop(navy, navy->other_pid, SIGUSR1, SIGUSR2);
+        server_loop(navy);
     }
-    printf("%d\n", ac);
     if (ac == 3) {
         print_player(ac, av, navy);
-        client_loop(navy, navy->player_pid, SIGUSR1, SIGUSR2);
+        client_loop(navy);
     }
     return (0);
 }

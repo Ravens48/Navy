@@ -43,7 +43,7 @@ int my_putstr(char const *str);
 int my_strcmp(char const *s1, char const *s2);
 int my_getnbr(char const *str);
 void connect(int ac, char **av, navy_t *navy);
-int help(char **av);
+void help(void);
 void print_player(int ac, char **av, navy_t *navy);
 char **create_map(int nb_line, int nb_colonne);
 void set_map(char **map, int size, int col_len);
@@ -60,7 +60,7 @@ char **take_boat(navy_t *navy, char **map);
 int error_gesture (navy_t *navy);
 int type_boat(navy_t *navy);
 int verif_place(navy_t *navy);
-int defense(navy_t *navy, int pid, int signal_1, int signal_2);
+int defense(navy_t *navy, int pid);
 void player_1_turn(navy_t *navy);
 void player_2_turn(navy_t *navy);
 int binary_to_decimal(char *binary);
@@ -70,11 +70,11 @@ void signal_send(int pid, int signal);
 int hit_or_miss(char **map, int col, int line);
 char **print_my_map(char **map);
 
-int attack_p1(navy_t *navy, int pid, int signal_1, int signal_2);
-void recup_attact_details(navy_t *navy, int pid, int signal_1);
-void server_loop(navy_t *navy, int pid, int signal_1, int signal_2);
-void client_loop(navy_t *navy, int pid, int signal_1, int signal_2);
-void details_choice(char *choice, int pid, int signal_1, int signal_2);
+int attack_p1(int pid);
+void recup_attact_details(navy_t *navy, int pid);
+void server_loop(navy_t *navy);
+void client_loop(navy_t *navy);
+void details_choice(char *choice, int pid);
 int nanosleep(const struct timespec *req, struct timespec *rem);
 
 

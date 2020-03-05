@@ -13,7 +13,6 @@ int hit_or_miss(char **map, int col, int line)
         return (2);
     }
     if (map[col][line] == '.') {
-        //my_putstr("MISS");
         return (1);
     }
     return (0);

@@ -12,11 +12,11 @@ int global = -1;
 void handler(int sig, siginfo_t *sign, void *context)
 {
     (void)context;
+
     if (global == -1) {
         global = sign->si_pid;
         return;
     }
-   // printf("sigusr1 ; %d\n, sigusre2 : %d\n, sig : %d\n", SIGUSR1, SIGUSR2, sig);
     if (sig == SIGUSR1) {
         global = '0';
     }
@@ -25,7 +25,7 @@ void handler(int sig, siginfo_t *sign, void *context)
     }
 }
 
-void player(navy_t *navy ,int id_process)
+void player(navy_t *navy, int id_process)
 {
     navy->sig.sa_sigaction = handler;
 
@@ -47,8 +47,8 @@ void player(navy_t *navy ,int id_process)
 void enemy_player(int id_process, char **av, navy_t *navy)
 {
     navy->player_pid = my_getnbr(av[1]);
-
     navy->sig.sa_sigaction = handler;
+
     sigemptyset(&navy->sig.sa_mask);
     navy->sig.sa_flags = SA_SIGINFO;
     sigaction(SIGUSR1, &navy->sig, NULL);
@@ -67,12 +67,8 @@ void connect(int ac, char **av, navy_t *navy)
 
     if (ac == 2) {
         player(navy, id_process);
-        //pause();
     }
     else if (ac == 3) {
         enemy_player(id_process, av, navy);
-        //pause();
     }
-        //lancer la boucle de jeu ici
-    
 }
