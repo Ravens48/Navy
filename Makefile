@@ -27,6 +27,12 @@ SRCS	= ./navy_help.c \
 	  ./navy_map_error.c \
 	  ./navy_boat.c \
 	  ./navy_connection.c \
+	  ./navy_game_loop.c \
+	  ./navy_player1.c \
+	  ./navy_player2.c \
+	  ./navy_hit_or_miss.c \
+	  ./lib/my/my_binary_to_decimal.c \
+	  ./lib/my/my_decimal_to_binary.c \
 	  ./navy_main.c
 
 OBJS	= $(SRCS:.c=.o)

@@ -39,7 +39,7 @@ int type_boat(navy_t *navy)
             return (84);
         //si il y a plusieurs fois le meme types de bateau ?
         //eviter la superposition de bateau ??
-        if ((map = verif_place(navy)) != 0) {
+        if (verif_place(navy) != 0) {
             my_putstr_error("Attention, les bateaux se superpose\n");
             return (84);
         }

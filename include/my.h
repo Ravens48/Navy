@@ -12,6 +12,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <time.h>
 
 #ifndef MY_H_
 #define MY_H_
@@ -26,15 +27,14 @@ typedef struct navy_s {
     int x_b2;
     int y_b2;
     int c_boat;
-}navy_t;
-
-typedef struct connect_s
-{
+    char col_details[5];
+    char line_details[5];
     int other_pid;
-    int signal_nb;
-}connect_t;
+    int player_pid;
+    struct sigaction sig;
+} navy_t;
 
-connect_t co_term;
+extern int global;
 
 void my_putchar(char c);
 int my_strlen(char const *str);
@@ -42,9 +42,9 @@ int my_putstr_error(char const *str);
 int my_putstr(char const *str);
 int my_strcmp(char const *s1, char const *s2);
 int my_getnbr(char const *str);
-void connect(int ac, char **av);
+void connect(int ac, char **av, navy_t *navy);
 int help(char **av);
-char **print_my_map(char **map);
+void print_player(int ac, char **av, navy_t *navy);
 char **create_map(int nb_line, int nb_colonne);
 void set_map(char **map, int size, int col_len);
 char **column(int i, int x, int add, char **map);
@@ -54,12 +54,28 @@ char *open_file(char *str);
 char **str_to_word_array(char *str);
 int count_word(const char *str);
 char *decimal_to_binary(int n);
-int binary_to_decimal(char *binary);
 void *my_memset(void *str, int value, int len);
 char **place_boat(navy_t *navy, char **map);
 char **take_boat(navy_t *navy, char **map);
 int error_gesture (navy_t *navy);
 int type_boat(navy_t *navy);
 int verif_place(navy_t *navy);
+int defense(navy_t *navy, int pid, int signal_1, int signal_2);
+void player_1_turn(navy_t *navy);
+void player_2_turn(navy_t *navy);
+int binary_to_decimal(char *binary);
+navy_t *malloc_s(void);
+void initialise_map(navy_t *navy);
+void signal_send(int pid, int signal);
+int hit_or_miss(char **map, int col, int line);
+char **print_my_map(char **map);
+
+int attack_p1(navy_t *navy, int pid, int signal_1, int signal_2);
+void recup_attact_details(navy_t *navy, int pid, int signal_1);
+void server_loop(navy_t *navy, int pid, int signal_1, int signal_2);
+void client_loop(navy_t *navy, int pid, int signal_1, int signal_2);
+void details_choice(char *choice, int pid, int signal_1, int signal_2);
+int nanosleep(const struct timespec *req, struct timespec *rem);
+
 
 #endif /* !MY_H_ */
