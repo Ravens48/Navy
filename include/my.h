@@ -78,6 +78,6 @@ void server_loop(navy_t *navy);
 void client_loop(navy_t *navy);
 void details_choice(char *choice, int pid);
 int nanosleep(const struct timespec *req, struct timespec *rem);
-void receive_hit_or_miss(int pid, int col, int line, navy_t *navy);
+void receive_hit_or_miss(int col, int line, navy_t *navy);
 
 #endif /* !MY_H_ */

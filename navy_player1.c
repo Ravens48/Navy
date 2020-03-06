@@ -13,15 +13,16 @@ void server_loop(navy_t *navy)
         attack_p1(navy->other_pid, navy);
         my_putstr("waiting for enemy's attack...\n");
         defense(navy, navy->other_pid);
+        my_putstr("my positions:\n");
         print_my_map(navy->map_usr);
         my_putchar('\n');
-        my_putstr("Enemy's positions:\n");
+        my_putstr("enemy's positions:\n");
         print_my_map(navy->map_ennemy);
         my_putchar('\n');
     }
 }
 
-void receive_hit_or_miss(int pid, int col, int line, navy_t *navy)
+void receive_hit_or_miss(int col, int line, navy_t *navy)
 {
     pause();
     usleep(2000);
@@ -30,15 +31,15 @@ void receive_hit_or_miss(int pid, int col, int line, navy_t *navy)
     if (global == '0') {
         my_putchar(cols);
         my_putchar(lines);
-        navy->map_ennemy[line][col] = 'x'; 
-        my_putstr(" : ");
-        my_putstr("hit\n");
+        navy->map_ennemy[line][col] = 'x';
+        my_putstr(": ");
+        my_putstr("hit\n\n");
     }
     if (global == '1'){
         my_putchar(cols);
         my_putchar(lines);
-        navy->map_ennemy[line][col] = 'o'; 
-        my_putstr(" : ");
-        my_putstr("missed\n");
+        navy->map_ennemy[line][col] = 'o';
+        my_putstr(": ");
+        my_putstr("missed\n\n");
     }
 }

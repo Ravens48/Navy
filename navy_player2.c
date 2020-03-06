@@ -14,9 +14,10 @@ void client_loop(navy_t *navy)
         my_putstr("waiting for enemy's attack...\n");
         defense(navy, navy->player_pid);
         attack_p1(navy->player_pid, navy);
+        my_putstr("my positions:\n");
         print_my_map(navy->map_usr);
         my_putchar('\n');
-        my_putstr("Enemy's positions:\n");
+        my_putstr("enemy's positions:\n");
         print_my_map(navy->map_ennemy);
         my_putchar('\n');
     }

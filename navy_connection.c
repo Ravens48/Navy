@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2020
-** connection   
+** connection
 ** File description:
 ** navy
 */
