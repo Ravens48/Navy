@@ -37,10 +37,13 @@ int type_boat(navy_t *navy)
             my_putstr_error("Attention, les bateaux se superpose\n");
             return (84);
         }
+        navy->boat_count += verif_type[0];
         free(verif_type);
         verif_type = get_next_line(navy->fd);
         navy->c_boat++;
     }
+    if (navy->boat_count != 206)
+        return (84);
     close (navy->fd);
     return (0);
 }

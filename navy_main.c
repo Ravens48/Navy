@@ -50,6 +50,8 @@ int main(int ac, char **av)
     navy_t *navy = malloc_s();
 
     initialise_map(navy);
+    if (ac == 1)
+        return (84);
     if (helper(ac, av) == 0)
         return (0);
     if (ac == 2)
@@ -61,11 +63,17 @@ int main(int ac, char **av)
     connect(ac, av, navy);
     if (ac == 2) {
         print_player(ac, av, navy);
-        server_loop(navy);
+        if (server_loop(navy) == 1)
+            return (0);
+        else if (server_loop(navy) == 2)
+            return (1);
     }
     if (ac == 3) {
         print_player(ac, av, navy);
-        client_loop(navy);
+        if (client_loop(navy) == 1)
+            return (0);
+        else if (server_loop(navy) == 2)
+            return (1);
     }
     return (0);
 }

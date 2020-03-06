@@ -31,6 +31,9 @@ typedef struct navy_s {
     char line_details[5];
     int other_pid;
     int player_pid;
+    int c_win;
+    int c_loose;
+    int boat_count;
     struct sigaction sig;
 } navy_t;
 
@@ -74,8 +77,9 @@ char **print_my_map(char **map);
 
 int attack_p1(int pid, navy_t *navy);
 void recup_attact_details(navy_t *navy, int pid);
-void server_loop(navy_t *navy);
-void client_loop(navy_t *navy);
+int server_loop(navy_t *navy);
+int client_loop(navy_t *navy);
+int engame(navy_t *navy);
 void details_choice(char *choice, int pid);
 int nanosleep(const struct timespec *req, struct timespec *rem);
 void receive_hit_or_miss(int col, int line, navy_t *navy);

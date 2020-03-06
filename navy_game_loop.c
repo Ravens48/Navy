@@ -95,6 +95,7 @@ int defense(navy_t *navy, int pid)
         my_putstr(": ");
         my_putstr("hit\n\n");
         navy->map_usr[line_attack][col_attack] = 'x';
+        navy->c_loose++;
         usleep(2000);
         kill(pid, SIGUSR1);
     }

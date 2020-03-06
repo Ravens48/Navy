@@ -1,0 +1,59 @@
+#!/usr/bin/expect -f
+
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+
+set timeout -1
+set map [lindex $argv 0];
+spawn ./navy $map
+match_max 100000
+expect -exact "attack: "
+send -- "B1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "C1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "E1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "F1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H1\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H2\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H3\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "C4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "D4\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "E6\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "F6\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "G6\r"
+sleep 0.8
+expect -exact "attack: "
+send -- "H6\r"
+expect eof
