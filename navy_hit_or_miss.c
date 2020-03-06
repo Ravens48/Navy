@@ -9,10 +9,10 @@
 
 int hit_or_miss(char **map, int col, int line)
 {
-    if (map[col][line] != '.') {
+    if (map[line][col ] != '.') {
         return (2);
     }
-    if (map[col][line] == '.') {
+    if (map[line][col] == '.') {
         return (1);
     }
     return (0);

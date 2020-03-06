@@ -66,16 +66,18 @@ void player_2_turn(navy_t *navy);
 int binary_to_decimal(char *binary);
 navy_t *malloc_s(void);
 void initialise_map(navy_t *navy);
+
+void error(int col, int line);
 void signal_send(int pid, int signal);
 int hit_or_miss(char **map, int col, int line);
 char **print_my_map(char **map);
 
-int attack_p1(int pid);
+int attack_p1(int pid, navy_t *navy);
 void recup_attact_details(navy_t *navy, int pid);
 void server_loop(navy_t *navy);
 void client_loop(navy_t *navy);
 void details_choice(char *choice, int pid);
 int nanosleep(const struct timespec *req, struct timespec *rem);
-
+void receive_hit_or_miss(int pid, int col, int line, navy_t *navy);
 
 #endif /* !MY_H_ */
