@@ -9,17 +9,27 @@
 
 int client_loop(navy_t *navy)
 {
+    printf("TEST\n");
     global = 0;
-    while (navy->c_win < 14) {
+    while (1) {
         my_putstr("waiting for enemy's attack...\n");
         defense(navy, navy->player_pid);
+        if (navy->c_loose == 14) {
+            break;
+        }
         attack_p1(navy->player_pid, navy);
+        if (navy->c_win == 14)
+            break;
         my_putstr("my positions:\n");
         print_my_map(navy->map_usr);
         my_putchar('\n');
         my_putstr("enemy's positions:\n");
         print_my_map(navy->map_ennemy);
         my_putchar('\n');
-        printf("compteur de x : %d\n", navy->c_win);
     }
+    if (navy->c_loose == 3)
+        return (2);
+    if (navy->c_win == 3)
+        return (1);
+    return(0);
 }

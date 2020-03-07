@@ -45,6 +45,37 @@ int helper(int ac, char **av)
     return (1);
 }
 
+int game_main (int ac, char **av, navy_t *navy)
+{
+    int j = 0;
+    int i = 0;
+    if (ac == 2) {
+        print_player(ac, av, navy);
+        i = server_loop(navy);
+        if (i == 1) {
+            my_putstr("I won\n");
+            return (0);
+        }
+        if (i == 2) {
+            my_putstr("Enemy won\n"); 
+            return (1);
+        }
+    }
+    if (ac == 3) {
+        print_player(ac, av, navy);
+        j = client_loop(navy);
+        if (j == 1) {
+            my_putstr("I won\n");
+            return (0);
+        }
+        if (j == 2) {
+            my_putstr("Enemy won\n");
+            return (1);
+        }
+    }
+    return (0);
+}
+
 int main(int ac, char **av)
 {
     navy_t *navy = malloc_s();
@@ -61,19 +92,6 @@ int main(int ac, char **av)
     if (error_gesture(navy) == 84)
         return (84);
     connect(ac, av, navy);
-    if (ac == 2) {
-        print_player(ac, av, navy);
-        if (server_loop(navy) == 1)
-            return (0);
-        else if (server_loop(navy) == 2)
-            return (1);
-    }
-    if (ac == 3) {
-        print_player(ac, av, navy);
-        if (client_loop(navy) == 1)
-            return (0);
-        else if (server_loop(navy) == 2)
-            return (1);
-    }
+    game_main(ac, av, navy);
     return (0);
 }
