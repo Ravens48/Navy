@@ -23,13 +23,11 @@ int type_boat(navy_t *navy)
         if (navy->type < 2 || navy->type > 5)
             return (84);
         if ((navy->x_b1 < 0 || navy->x_b1 > 8) ||
-                (navy->y_b1 < -1 || navy->y_b1 > 7) ||
-                (navy->x_b2 < 0 || navy->x_b2 > 8) ||
-                (navy->y_b2 < -1 || navy->y_b2 > 7)) {
-                return (84);
-            }
-        if ((navy->x_b1 + navy->y_b1) > (navy->x_b2 + navy->y_b2))
+            (navy->y_b1 < -1 || navy->y_b1 > 7) ||
+            (navy->x_b2 < 0 || navy->x_b2 > 8) ||
+            (navy->y_b2 < -1 || navy->y_b2 > 7)) {
             return (84);
+        }
         if (verif_place(navy) != 0)
             return (84);
         navy->boat_count += verif_type[0];
@@ -39,7 +37,7 @@ int type_boat(navy_t *navy)
     }
     if (navy->boat_count != 206)
         return (84);
-    close (navy->fd);
+    close(navy->fd);
     return (0);
 }
 

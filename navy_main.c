@@ -46,14 +46,12 @@ int game_main(int ac, char **av, navy_t *navy)
         i = server_loop(navy);
         if (i == 1) {
             print_my_map(navy->map_usr); my_putchar('\n');
-            print_my_map(navy->map_ennemy);
-            my_putstr("\nI won\n");
+            print_my_map(navy->map_ennemy); my_putstr("\nI won\n");
             return (0);
         }
         if (i == 2) {
             print_my_map(navy->map_usr); my_putchar('\n');
-            print_my_map(navy->map_ennemy);
-            my_putstr("\nEnemy won\n");
+            print_my_map(navy->map_ennemy); my_putstr("\nEnemy won\n");
             return (1);
         }
     }

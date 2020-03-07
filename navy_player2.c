@@ -23,8 +23,7 @@ int client_loop(navy_t *navy)
         print_my_map(navy->map_usr);
         my_putchar('\n');
         my_putstr("enemy's positions:\n");
-        print_my_map(navy->map_ennemy);
-        my_putchar('\n');
+        print_my_map(navy->map_ennemy); my_putchar('\n');
     }
     if (navy->c_loose == 14)
         return (2);

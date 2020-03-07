@@ -72,8 +72,10 @@ void initialise_map(navy_t *navy);
 int helper(int ac, char **av);
 int game_main_2(int ac, char **av, navy_t *navy, int j);
 int defense(navy_t *navy, int pid);
+void defense_2(navy_t *navy, int pid, int line_attack, int col_attack);
+void defense_3(navy_t *navy, int pid, int line_attack, int col_attack);
 
-
+int error_g(navy_t *navy);
 void error(int col, int line);
 void signal_send(int pid, int signal);
 int hit_or_miss(char **map, int col, int line);

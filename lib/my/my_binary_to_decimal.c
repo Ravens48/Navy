@@ -20,5 +20,5 @@ int binary_to_decimal(char *binary)
             res += mul;
         mul *= 2;
     }
-    return (res);    
+    return (res);
 }

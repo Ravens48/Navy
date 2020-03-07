@@ -26,10 +26,8 @@ int attack_p1(int pid, navy_t *navy)
         line = my_getnbr(&buffer[1]) - 1;
         error(col, line);
     } while ((col < 0 || col > 7) || (line < 0 || line > 7));
-    bn_col = decimal_to_binary(col);
-    bn_line = decimal_to_binary(line);
-    details_choice(bn_col, pid);
-    details_choice(bn_line, pid);
+    bn_col = decimal_to_binary(col); bn_line = decimal_to_binary(line);
+    details_choice(bn_col, pid); details_choice(bn_line, pid);
     receive_hit_or_miss(col, line, navy);
     return (0);
 }
@@ -81,32 +79,11 @@ void recup_attact_details(navy_t *navy, int pid)
 
 int defense(navy_t *navy, int pid)
 {
-    int x = 0;
     recup_attact_details(navy, pid);
     int col_attack = binary_to_decimal(navy->col_details);
     int line_attack = binary_to_decimal(navy->line_details);
-    char col = col_attack + 'A';
-    char line = line_attack + '1';
-    x = hit_or_miss(navy->map_usr, col_attack, line_attack);
 
-    if (x == 2) {
-        my_putchar(col);
-        my_putchar(line);
-        my_putstr(": ");
-        my_putstr("hit\n\n");
-        navy->map_usr[line_attack][col_attack] = 'x';
-        navy->c_loose++;
-        usleep(2000);
-        kill(pid, SIGUSR1);
-    }
-    if (x == 1) {
-        my_putchar(col);
-        my_putchar(line);
-        my_putstr(": ");
-        my_putstr("missed\n\n");
-        navy->map_usr[line_attack][col_attack] = 'o';
-        usleep(2000);
-        kill(pid, SIGUSR2);
-    }
+    defense_2(navy, pid, line_attack, col_attack);
+    defense_3(navy, pid, line_attack, col_attack);
     return (0);
 }
