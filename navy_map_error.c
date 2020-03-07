@@ -20,23 +20,18 @@ int type_boat(navy_t *navy)
         navy->y_b1 = (verif_type[3] - '0') - 1;
         navy->x_b2 = verif_type[5] - 'A';
         navy->y_b2 = (verif_type[6] - '0') - 1;
-        if (navy->type < 2 || navy->type > 5) {
-            my_putstr_error("Attention, les bateau ont une taille de 2 mininum et 5 maximum\n");
+        if (navy->type < 2 || navy->type > 5)
             return (84);
-        }
         if ((navy->x_b1 < 0 || navy->x_b1 > 8) ||
                 (navy->y_b1 < -1 || navy->y_b1 > 7) ||
                 (navy->x_b2 < 0 || navy->x_b2 > 8) ||
                 (navy->y_b2 < -1 || navy->y_b2 > 7)) {
-                my_putstr_error("Attention, un ou plusieurs bateau se trouve en dehors de la carte\n");
                 return (84);
             }
         if ((navy->x_b1 + navy->y_b1) > (navy->x_b2 + navy->y_b2))
             return (84);
-        if (verif_place(navy) != 0) {
-            my_putstr_error("Attention, les bateaux se superpose\n");
+        if (verif_place(navy) != 0)
             return (84);
-        }
         navy->boat_count += verif_type[0];
         free(verif_type);
         verif_type = get_next_line(navy->fd);

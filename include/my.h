@@ -69,6 +69,10 @@ void player_2_turn(navy_t *navy);
 int binary_to_decimal(char *binary);
 navy_t *malloc_s(void);
 void initialise_map(navy_t *navy);
+int helper(int ac, char **av);
+int game_main_2(int ac, char **av, navy_t *navy, int j);
+int defense(navy_t *navy, int pid);
+
 
 void error(int col, int line);
 void signal_send(int pid, int signal);

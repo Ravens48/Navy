@@ -36,43 +36,28 @@ void print_player(int ac, char **av, navy_t *navy)
     my_putchar('\n');
 }
 
-int helper(int ac, char **av)
-{
-    if ((ac == 2) && (my_strcmp(av[1], "-h") == 0)) {
-        help();
-        return (0);
-    }
-    return (1);
-}
-
-int game_main (int ac, char **av, navy_t *navy)
+int game_main(int ac, char **av, navy_t *navy)
 {
     int j = 0;
     int i = 0;
+
     if (ac == 2) {
         print_player(ac, av, navy);
         i = server_loop(navy);
         if (i == 1) {
-            my_putstr("I won\n");
+            print_my_map(navy->map_usr); my_putchar('\n');
+            print_my_map(navy->map_ennemy);
+            my_putstr("\nI won\n");
             return (0);
         }
         if (i == 2) {
-            my_putstr("Enemy won\n"); 
+            print_my_map(navy->map_usr); my_putchar('\n');
+            print_my_map(navy->map_ennemy);
+            my_putstr("\nEnemy won\n");
             return (1);
         }
     }
-    if (ac == 3) {
-        print_player(ac, av, navy);
-        j = client_loop(navy);
-        if (j == 1) {
-            my_putstr("I won\n");
-            return (0);
-        }
-        if (j == 2) {
-            my_putstr("Enemy won\n");
-            return (1);
-        }
-    }
+    game_main_2(ac, av, navy, j);
     return (0);
 }
 

@@ -24,9 +24,9 @@ int server_loop(navy_t *navy)
         print_my_map(navy->map_ennemy);
         my_putchar('\n');
     }
-    if (navy->c_loose == 3) 
+    if (navy->c_loose == 14)
         return (2);
-    if (navy->c_win == 3)
+    if (navy->c_win == 14)
         return (1);
     return (0);
 }

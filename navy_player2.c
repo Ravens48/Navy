@@ -9,7 +9,6 @@
 
 int client_loop(navy_t *navy)
 {
-    printf("TEST\n");
     global = 0;
     while (1) {
         my_putstr("waiting for enemy's attack...\n");
@@ -27,9 +26,9 @@ int client_loop(navy_t *navy)
         print_my_map(navy->map_ennemy);
         my_putchar('\n');
     }
-    if (navy->c_loose == 3)
+    if (navy->c_loose == 14)
         return (2);
-    if (navy->c_win == 3)
+    if (navy->c_win == 14)
         return (1);
-    return(0);
+    return (0);
 }
